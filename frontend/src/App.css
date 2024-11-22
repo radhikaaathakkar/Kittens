@@ -1,10 +1,104 @@
-.container{
-  background: linear-gradient(89deg, #FF5EDF 0%, #04C8DE 100%);
+/* Full-screen container with a glowing eerie gradient */
+.container {
+  background: radial-gradient(circle, #1f4d6b, #adb5c6); /* Dark gray to complement card color */
   height: 100vh;
   display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 300px;
+  box-sizing: border-box;
+  overflow: hidden;
+  position: relative;
 }
 
-.equi{
-  display:'flex';
-  flex: 1
+/* Centered card with glowing edges */
+.equi {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: #1c1c1e; /* Dark background for the card */
+  border-radius: 15px;
+  box-shadow: 0 0 15px rgba(10, 16, 19, 0.563), 0 0 30px rgba(255, 0, 85, 0.4);
+  padding: 50px;
+  max-width: 500px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  z-index: 1;
+  box-sizing: border-box; /* Prevents card size from changing due to hover */
+}
+
+/* Card hover effects */
+.equi:hover {
+  transform: translateY(-10px) scale(1.05); /* Slight scale effect to avoid layout shifting */
+  box-shadow: 0 0 20px rgba(255, 0, 85, 1), 0 0 40px rgba(255, 0, 85, 0.6);
+}
+
+/* Glowing heading styles */
+h1 {
+  font-size: 2.5rem;
+  color: #000000;
+  margin: 0 0 20px;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  text-shadow: 0 0 10px #361bcd, 0 0 20px #1b9cdc;
+  animation: flicker 2s infinite;
+}
+
+/* Subheading with softer glow */
+h2 {
+  font-size: 1.8rem;
+  color: #ff69b4;
+  margin: 0 0 30px;
+  text-shadow: 0 0 10px #ff69b4, 0 0 15px #ff69b4;
+}
+
+/* Paragraph text with a muted glow */
+p {
+  font-size: 1.2rem;
+  color: #f3f3f3;
+  line-height: 1.8;
+  margin-bottom: 30px;
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.6);
+}
+
+/* Button styles with hover animations */
+button {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1rem;
+  color: #fff;
+  background: linear-gradient(45deg, #ff416c, #ff4b2b);
+  padding: 12px 20px;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 5px 15px rgba(255, 65, 108, 0.6);
+}
+
+button:hover {
+  background: linear-gradient(45deg, #ff4b2b, #ff416c);
+  transform: scale(1.1);
+  box-shadow: 0 8px 20px rgba(255, 65, 108, 0.8);
+}
+
+/* Background animation for container */
+@keyframes flicker {
+  0%, 100% {
+    text-shadow: 0 0 5px #7124f7, 0 0 10px #24f7f4, 0 0 15px #24d7f7;
+  }
+  50% {
+    text-shadow: 0 0 20px #7124f7, 0 0 30px #24f7f4, 0 0 40px #24d7f7;
+  }
+}
+
+/* Smooth appearance on load */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
